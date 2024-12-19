@@ -6,10 +6,9 @@ class GetstartedView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-     backgroundColor:  Color(0xffFFFFFF),
-     body: GetstartedViewBody(),
-
+    return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: const GetstartedViewBody(),
     );
   }
 }

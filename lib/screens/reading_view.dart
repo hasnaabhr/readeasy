@@ -3,9 +3,9 @@ import 'package:readeasy/screens/reading_view_body.dart';
 import 'package:readeasy/widgets/custome_nav_bar_reading_view.dart';
 
 class ReadingView extends StatelessWidget {
-  final String title; // العنوان
-  final String subtitle; // العنوان الفرعي
-  final String content; // النص الخاص بالكتاب
+  final String title; //
+  final String subtitle; //
+  final String content; //
 
   const ReadingView({
     super.key,
@@ -18,7 +18,7 @@ class ReadingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const CustomeNavBarReadingView(),
-      backgroundColor: const Color(0xffFFFFFF),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: ReadingViewBody(
         title: title,
         subtitle: subtitle,
@@ -27,5 +27,3 @@ class ReadingView extends StatelessWidget {
     );
   }
 }
-
-

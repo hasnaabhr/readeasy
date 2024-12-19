@@ -4,7 +4,7 @@ import 'package:readeasy/font_size_provider.dart'; // Import the FontSizeProvide
 class ChangingFontSize extends StatelessWidget {
   final FontSizeProvider fontSizeProvider;
 
-  const ChangingFontSize(this.fontSizeProvider, {super.key});  // الآن الـ fontSizeProvider هو معلمة البناء.
+  const ChangingFontSize(this.fontSizeProvider, {super.key}); //
 
   @override
   Widget build(BuildContext context) {
@@ -56,18 +56,22 @@ class ChangingFontSize extends StatelessWidget {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 ),
                 items: [10, 12, 14, 16, 18, 20, 22, 24, 26]
-                    .map((size) => DropdownMenuItem<double>(  // Use DropdownMenuItem for double values
+                    .map((size) => DropdownMenuItem<double>(
+                          // Use DropdownMenuItem for double values
                           value: size.toDouble(), // Convert int to double
                           child: Text('$size px'),
                         ))
                     .toList(),
                 onChanged: (value) {
                   if (value != null) {
-                    fontSizeProvider.setFontSize(value); // Update font size in the provider
-                    Navigator.pop(context); // Close the dialog after saving the font size
+                    fontSizeProvider
+                        .setFontSize(value); // Update font size in the provider
+                    Navigator.pop(
+                        context); // Close the dialog after saving the font size
                   }
                 },
               ),

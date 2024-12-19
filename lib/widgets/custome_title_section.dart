@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomeTitleSection extends StatelessWidget {
-  final String title; // العنوان
-  final String subtitle; // الكاتب أو العنوان الفرعي
+  final String title; //
+  final String subtitle; //
 
   const CustomeTitleSection({
     super.key,
@@ -13,6 +13,9 @@ class CustomeTitleSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get the current theme mode (light or dark)
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -20,7 +23,7 @@ class CustomeTitleSection extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {
-                Navigator.pop(context); // الرجوع إلى الصفحة السابقة
+                Navigator.pop(context); //
               },
               icon: const Icon(
                 CupertinoIcons.arrow_left_circle,
@@ -31,12 +34,14 @@ class CustomeTitleSection extends StatelessWidget {
             Expanded(
               child: Text(
                 title,
-                style: const TextStyle(
-                  fontFamily: 'Georgia',
-                  color: Color(0xff2E2E2E),
+                style: TextStyle(
+                  fontFamily: isDarkMode
+                      ? 'Georgia'
+                      : 'Roboto', // Change font based on theme mode
+                  color: isDarkMode ? Colors.white : const Color(0xff2E2E2E),
                   fontSize: 20,
                   fontWeight: FontWeight.w400,
-                  overflow: TextOverflow.ellipsis, // لعدم تجاوز النص
+                  overflow: TextOverflow.ellipsis, // Prevent text overflow
                 ),
               ),
             ),
@@ -44,11 +49,13 @@ class CustomeTitleSection extends StatelessWidget {
         ),
         Text(
           subtitle,
-          style: const TextStyle(
-            fontFamily: 'Georgia',
+          style: TextStyle(
+            fontFamily: isDarkMode
+                ? 'Georgia'
+                : 'Roboto', // Change font based on theme mode
             fontSize: 14,
             fontWeight: FontWeight.w400,
-            color: Color(0xff686868),
+            color: isDarkMode ? Colors.grey[300] : const Color(0xff686868),
           ),
         ),
       ],

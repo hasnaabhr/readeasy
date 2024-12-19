@@ -14,6 +14,9 @@ class HomeViewBody extends StatefulWidget {
 class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   Widget build(BuildContext context) {
+    // Fetching the current theme
+    final theme = Theme.of(context);
+
     return Padding(
       padding: const EdgeInsets.only(top: 67, left: 25, right: 25),
       child: SingleChildScrollView(
@@ -21,8 +24,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 16),
-            const CustomSearch(
+            // Custom search with dynamic label color
+            CustomSearch(
               label: 'Search for books',
+              labelStyle: TextStyle(color: theme.textTheme.bodyLarge?.color),
             ),
             const SizedBox(height: 16),
             const SingleChildScrollView(
@@ -30,13 +35,15 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               child: TabsWidget(),
             ),
             const SizedBox(height: 23),
-            const Text(
+            // Title for 'Continue Reading' section with dynamic color
+            Text(
               'Continue Reading',
               style: TextStyle(
-                  fontFamily: 'Georgia',
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff000000)),
+                fontFamily: 'Georgia',
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                color: theme.textTheme.titleLarge?.color ?? Colors.black,
+              ),
             ),
             const SizedBox(height: 16),
             const SingleChildScrollView(
@@ -51,9 +58,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     content:
                         'This is a gripping tale of survival, resilience, and the power of human spirit.Follow Samantha on her unforgettable journey.',
                   ),
-                  SizedBox(
-                    width: 20,
-                  ),
+                  SizedBox(width: 20),
                   ContinueReadingSection(
                     image: 'assets/images/b3.png',
                     title: 'Ninth House',
@@ -62,9 +67,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     content:
                         'Alex Stern is the most unlikely member of Yale’s freshman class. But behind its pristine facade lies a darker world...',
                   ),
-                  SizedBox(
-                    width: 20,
-                  ),
+                  SizedBox(width: 20),
                   ContinueReadingSection(
                     image: 'assets/images/b2.png',
                     title: 'One Dark Window',
@@ -76,16 +79,16 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 17,
-            ),
-            const Text(
+            const SizedBox(height: 17),
+            // Title for 'Best Sellers' section with dynamic color
+            Text(
               'Best Sellers',
               style: TextStyle(
-                  fontFamily: 'Georgia',
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff000000)),
+                fontFamily: 'Georgia',
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                color: theme.textTheme.titleLarge?.color ?? Colors.black,
+              ),
             ),
             BestSellerGrid(),
           ],

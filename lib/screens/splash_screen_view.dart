@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:readeasy/screens/getstarted_view.dart';
 import 'package:readeasy/screens/splash_screen_view_body.dart';
@@ -17,18 +16,21 @@ class _SplashScreenViewState extends State<SplashScreenView> {
     super.initState();
 
     Timer(const Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const GetstartedView()),
-      );
+      if (mounted) {
+        // Check if the widget is still in the widget tree
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const GetstartedView()),
+        );
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.white,
-      body: SplashScreenViewBody(),
+    return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: const SplashScreenViewBody(),
     );
   }
 }

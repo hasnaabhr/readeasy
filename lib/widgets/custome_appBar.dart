@@ -6,7 +6,8 @@ class CustomeAppBarWidget extends StatelessWidget {
       {super.key,
       required this.title,
       required this.fontSize,
-      required this.fontWeight});
+      required this.fontWeight,
+      required titleColor});
   final String title;
   final double fontSize;
   final FontWeight fontWeight;

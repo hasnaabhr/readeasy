@@ -12,12 +12,13 @@ class UiProvider extends ChangeNotifier {
     primaryColor: Colors.black12,
     brightness: Brightness.dark,
     primaryColorDark: Colors.black12,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: Colors.black,
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: Colors.black,
-      selectedItemColor: Colors.white,
+    scaffoldBackgroundColor: Colors.black, // Background for dark mode
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: Colors.black, // Dark background
+      selectedItemColor: Color(0xffE76C00),
       unselectedItemColor: Colors.grey,
     ),
   );
@@ -27,12 +28,13 @@ class UiProvider extends ChangeNotifier {
     primaryColor: Colors.white,
     brightness: Brightness.light,
     primaryColorDark: Colors.white,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: Colors.white,
-      selectedItemColor: Colors.blue,
+    scaffoldBackgroundColor: Colors.white, // Background for light mode
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: Colors.white, // Light background (white)
+      selectedItemColor: Color(0xffE76C00),
       unselectedItemColor: Colors.grey,
     ),
   );

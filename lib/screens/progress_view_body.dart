@@ -7,44 +7,48 @@ class ProgressViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 67, left: 25),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomeAppBarWidget(
-            title: 'Progress',
-            fontSize: 22,
-            fontWeight: FontWeight.w700,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          ContinueReadingSection(
-            image: 'assets/images/b1.png',
-            title: 'A Day of Fallen Night',
-            subtitle: 'Samantha Shannon',
-            color: Color(0xffCBF5FF),
-          ),
-          SizedBox(
-            height: 29,
-          ),
-          ContinueReadingSection(
-            image: 'assets/images/b3.png',
-            title: 'Ninth House',
-            subtitle: 'Lelgh Bradugo',
-            color: Color(0xffDEDFE2),
-          ),
-          SizedBox(
-            height: 29,
-          ),
-          ContinueReadingSection(
-            image: 'assets/images/b2.png',
-            title: 'One Dark Window',
-            subtitle: 'Rachel Gillig',
-            color: Color.fromARGB(255, 121, 138, 111),
-          ),
-        ],
+    // Fetching the current theme
+    final theme = Theme.of(context);
+
+    return Padding(
+      padding: const EdgeInsets.only(
+          top: 67, left: 25, right: 25), // Added padding for right side
+      child: SingleChildScrollView(
+        // Adding scroll view to prevent overflow
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Using the theme to style the app bar dynamically
+            CustomeAppBarWidget(
+              title: 'Progress',
+              fontSize: 22,
+              fontWeight: FontWeight.w700,
+              titleColor: theme.textTheme.titleLarge?.color ?? Colors.black,
+            ),
+            const SizedBox(height: 30),
+            // Continue Reading Section with dynamic title and background color
+            const ContinueReadingSection(
+              image: 'assets/images/b1.png',
+              title: 'A Day of Fallen Night',
+              subtitle: 'Samantha Shannon',
+              color: Color(0xffCBF5FF),
+            ),
+            const SizedBox(height: 29),
+            const ContinueReadingSection(
+              image: 'assets/images/b3.png',
+              title: 'Ninth House',
+              subtitle: 'Lelgh Bradugo',
+              color: Color(0xffDEDFE2),
+            ),
+            const SizedBox(height: 29),
+            const ContinueReadingSection(
+              image: 'assets/images/b2.png',
+              title: 'One Dark Window',
+              subtitle: 'Rachel Gillig',
+              color: Color.fromARGB(255, 121, 138, 111),
+            ),
+          ],
+        ),
       ),
     );
   }

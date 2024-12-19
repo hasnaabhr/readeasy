@@ -3,10 +3,10 @@ import 'package:readeasy/screens/book_view_body.dart';
 import 'package:readeasy/widgets/custome_nav_bar_bookview.dart';
 
 class BookView extends StatelessWidget {
-  final String image; // صورة الكتاب
-  final String title; // العنوان
-  final String subtitle; // العنوان الفرعي
-  final String content; // النص الخاص بالكتاب
+  final String image;
+  final String title;
+  final String subtitle;
+  final String content;
 
   const BookView({
     super.key,
@@ -19,7 +19,7 @@ class BookView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffFFFFFF),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       bottomNavigationBar: CustomeNavBarBookView(
         title: title,
         subtitle: subtitle,

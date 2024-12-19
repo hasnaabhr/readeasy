@@ -7,42 +7,38 @@ class GetstartedViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    // Fetching the current theme
+    final theme = Theme.of(context);
+
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        BookCoverWidget(),
-        SizedBox(
-          height: 38,
-        ),
+        const BookCoverWidget(),
+        const SizedBox(height: 38),
         Text(
           'Explore New Worlds of Knowledge\nLearn Easily with Books for Every\nField!',
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: Color(0xff2E2E2E),
+            color: theme.textTheme.titleLarge?.color ?? Colors.black,
             fontFamily: 'Georgia',
             fontSize: 22,
             fontWeight: FontWeight.w400,
           ),
         ),
-        SizedBox(
-          height: 16,
-        ),
+        const SizedBox(height: 16),
         Text(
           'Discover Knowledge Across All Fields with Your\n Favorite Books at Your Fingertips!',
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: Color(0xff4B4C4F),
+            color: theme.textTheme.bodyMedium?.color ?? Colors.black54,
             fontFamily: 'Georgia',
             fontSize: 16,
             fontWeight: FontWeight.w400,
           ),
         ),
-        SizedBox(
-          height: 40,
-        ),
-        CustomeButton()
+        const SizedBox(height: 40),
+        const CustomeButton(),
       ],
     );
   }
 }
-

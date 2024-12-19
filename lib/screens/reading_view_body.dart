@@ -4,9 +4,9 @@ import 'package:readeasy/widgets/custome_search.dart';
 import 'package:readeasy/widgets/custome_title_section.dart';
 
 class ReadingViewBody extends StatelessWidget {
-  final String title; // العنوان
-  final String subtitle; // العنوان الفرعي
-  final String content; // المحتوى الخاص بالكتاب
+  final String title; //
+  final String subtitle; //
+  final String content; //
 
   const ReadingViewBody({
     super.key,
@@ -17,19 +17,27 @@ class ReadingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Fetching the current theme
+    final theme = Theme.of(context);
+
     return Padding(
       padding: const EdgeInsets.only(top: 67, left: 20),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Using dynamic theme colors for the title section
             CustomeTitleSection(title: title, subtitle: subtitle),
             const SizedBox(height: 10),
-            const CustomSearch(label: 'Search'),
+            // Custom search with dynamic text color
+            CustomSearch(
+              label: 'Search',
+              labelStyle: TextStyle(color: theme.textTheme.bodyLarge?.color),
+            ),
             const SizedBox(height: 10),
+            // Book content with dynamic text style based on theme
             BookContent(
-              // يتم تمرير النص الديناميكي هنا
-              storyTextStyle: _storyTextStyle,
+              storyTextStyle: _getStoryTextStyle(theme),
             ),
           ],
         ),
@@ -37,10 +45,12 @@ class ReadingViewBody extends StatelessWidget {
     );
   }
 
-  TextStyle get _storyTextStyle => const TextStyle(
-        fontSize: 18,
-        height: 1.5,
-        fontFamily: 'Georgia',
-        color: Color(0xff2E2E2E),
-      );
+  TextStyle _getStoryTextStyle(ThemeData theme) {
+    return TextStyle(
+      fontSize: 18,
+      height: 1.5,
+      fontFamily: 'Georgia',
+      color: theme.textTheme.bodyLarge?.color ?? const Color(0xff2E2E2E),
+    );
+  }
 }

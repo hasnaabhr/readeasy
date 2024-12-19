@@ -10,13 +10,11 @@ class WishlistView extends StatefulWidget {
 }
 
 class _WishlistViewState extends State<WishlistView> {
- 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.white,
-      body: WishlistViewBody(),
-     
+    return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: const WishlistViewBody(),
     );
   }
 }

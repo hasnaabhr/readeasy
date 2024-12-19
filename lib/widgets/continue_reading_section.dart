@@ -54,7 +54,7 @@ class ContinueReadingSection extends StatelessWidget {
                             image: image,
                             title: title,
                             subtitle: subtitle,
-                            content: content!,
+                            content: content ?? 'No content available', //
                           ),
                         ),
                       );

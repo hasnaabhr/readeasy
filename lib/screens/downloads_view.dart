@@ -9,13 +9,11 @@ class DownloadsView extends StatefulWidget {
 }
 
 class _DownloadsViewState extends State<DownloadsView> {
- 
-
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.white,
-      body: DownloadsViewBody(),
+    return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: const DownloadsViewBody(),
     );
   }
 }

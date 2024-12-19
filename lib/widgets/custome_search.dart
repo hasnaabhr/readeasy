@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomSearch extends StatelessWidget {
-  const CustomSearch({super.key, required this.label});
+  const CustomSearch(
+      {super.key, required this.label, required TextStyle labelStyle});
   final String label;
 
   @override

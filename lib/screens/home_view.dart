@@ -31,10 +31,11 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
+        backgroundColor:
+            Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         elevation: 0,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
@@ -56,8 +57,10 @@ class _HomeViewState extends State<HomeView> {
             label: 'Settings',
           ),
         ],
-        selectedItemColor: const Color(0xffE76C00),
-        unselectedItemColor: const Color(0xff969696),
+        selectedItemColor:
+            Theme.of(context).bottomNavigationBarTheme.selectedItemColor, //
+        unselectedItemColor:
+            Theme.of(context).bottomNavigationBarTheme.unselectedItemColor, //
       ),
     );
   }

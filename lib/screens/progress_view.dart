@@ -21,19 +21,19 @@ class _ProgressViewState extends State<ProgressView> {
       _selectedIndex = index;
     });
   }
-  
-  
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold( 
-      backgroundColor: Colors.white,
-      body:const ProgressViewBody() ,
+    return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: const ProgressViewBody(),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xffFFFFFF),
+        backgroundColor:
+            Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         currentIndex: _selectedIndex, // Set the current selected index
         onTap: _onItemTapped, // Handle item taps
         items: <BottomNavigationBarItem>[
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: IconButton(
               onPressed: () {
                 Navigator.push(context,
@@ -58,7 +58,7 @@ class _ProgressViewState extends State<ProgressView> {
           BottomNavigationBarItem(
             icon: IconButton(
               onPressed: () {
-                 Navigator.push(
+                Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const DownloadsView()));
@@ -80,8 +80,10 @@ class _ProgressViewState extends State<ProgressView> {
             label: 'Settings',
           ),
         ],
-        selectedItemColor: const Color(0xffE76C00),
-        unselectedItemColor: const Color(0xff969696),
+        selectedItemColor:
+            Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+        unselectedItemColor:
+            Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
       ),
     );
   }

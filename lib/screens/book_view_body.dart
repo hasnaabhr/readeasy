@@ -18,43 +18,51 @@ class BookViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Fetching the current theme
+    final theme = Theme.of(context);
+
     return Padding(
       padding: const EdgeInsets.only(top: 67, left: 20, right: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          CustomeTitleSection(
-            title: title,
-            subtitle: subtitle,
-          ),
-          const SizedBox(height: 16),
-          Center(
-            child: Image.asset(
-              image,
-              width: 152.63,
-              height: 240,
+      child: SingleChildScrollView(
+        // Adding SingleChildScrollView here
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CustomeTitleSection(
+              title: title,
+              subtitle: subtitle,
             ),
-          ),
-          const SizedBox(height: 37),
-          const BookInfoWidget(),
-          const SizedBox(height: 16),
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Text(
-              content,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
-                color: Color(0xff2E2E2E),
-                fontFamily: 'Georgia',
+            const SizedBox(height: 16),
+            Center(
+              child: Image.asset(
+                image,
+                width: 152.63,
+                height: 240,
               ),
-              textAlign: TextAlign.justify,
             ),
-          ),
-        ],
+            const SizedBox(height: 37),
+            const BookInfoWidget(),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: Colors.white, // Adapt to theme
+              ),
+              child: Text(
+                content,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                  color: theme.textTheme.bodyLarge?.color ??
+                      const Color(0xff2E2E2E),
+                  fontFamily: 'Georgia',
+                ),
+                textAlign: TextAlign.justify,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
