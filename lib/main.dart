@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:readeasy/background_color_provider.dart';
+import 'package:readeasy/font_size_provider.dart';
 import 'package:readeasy/screens/home_view.dart';
 import 'package:readeasy/theme_provider.dart'; // Import the ThemeProvider
 import 'package:readeasy/screens/splash_screen_view.dart'; // Your app's initial screen
@@ -10,6 +12,14 @@ void main() {
       providers: [
         ChangeNotifierProvider(
           create: (context) => UiProvider()..init(), // Theme provider
+        ),
+        ChangeNotifierProvider(
+          create: (context) =>
+              FontSizeProvider(), // FontSizeProvider added here
+        ),
+        ChangeNotifierProvider(
+          create: (context) =>
+              BackgroundColorProvider(), // FontSizeProvider added here
         ),
       ],
       child: const ReadEasy(),

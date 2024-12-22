@@ -13,7 +13,7 @@ class UiProvider extends ChangeNotifier {
     brightness: Brightness.dark,
     primaryColorDark: Colors.black12,
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(255, 150, 63, 63),
     ),
     scaffoldBackgroundColor: Colors.black, // Background for dark mode
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
